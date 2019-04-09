@@ -1,0 +1,110 @@
+@prefix prov:          <http://www.w3.org/ns/prov#> .
+@prefix dcat:          <http://www.w3.org/ns/dcat#> .
+@prefix dcterms:       <http://purl.org/dc/terms/> .
+@prefix void:          <http://rdfs.org/ns/void#> .
+@prefix setl:          <http://purl.org/twc/vocab/setl/> .
+@prefix csvw:          <http://www.w3.org/ns/csvw#> .
+@prefix pv:            <http://purl.org/net/provenance/ns#> .
+@prefix rdfs: 			<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: 			<http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: 			<http://www.w3.org/2002/07/owl#> . 
+@prefix prov:			<http://www.w3.org/ns/prov#> . 
+@prefix gprov: 			< https://idea.tw.rpi.edu/projects/heals/gprov/> .
+@prefix dmto-kb:		< https://idea.tw.rpi.edu/projects/heals/dmtokb/> .
+@prefix dct: 			< http://purl.org/dc/terms/> .
+@prefix bibo: 			< http://bibliontology.com/index.html#> .
+@prefix dmto: 			< https://idea.tw.rpi.edu/projects/heals/dmto/> .
+@prefix sio: 			<http://semanticscience.org/resource/> .
+@prefix sio-f: 			<http://semanticscience.org/ontology/sio.owl#> .
+@prefix np:             <http://www.nanopub.org/nschema#> .
+@prefix :      			<https://idea.tw.rpi.edu/projects/heals/gprov/> .
+
+
+:table a csvw:Table, setl:Table;
+  csvw:delimiter ",";
+  prov:wasGeneratedBy [
+    a setl:Extract;
+    prov:used <annotations.csv>;
+  ].
+
+
+<https://idea.tw.rpi.edu/projects/heals/gprov/> a void:Dataset;
+  prov:wasGeneratedBy [
+    a setl:Transform, setl:JSLDT;
+    prov:used :table;
+    setl:hasContext '''{
+	
+	"sio" :     "http://semanticscience.org/resource/",
+    "rdfs" :    "http://www.w3.org/2000/01/rdf-schema#",
+	"prov":     "http://www.w3.org/ns/prov#",
+	"bibo":  	"http://bibliontology.com/index.html#",
+	"dct": 		"http://purl.org/dc/terms/",
+	"gprov": 	"https://idea.tw.rpi.edu/projects/heals/gprov/"
+	
+}''';
+    prov:value '''[{
+  "@id": "gprov:{{row.Acronymn}}_{{row.Recommendation_Number}}_DMTO_{{row.DMTO_Rule_No}}",
+  "@type": "gprov:FormalRule",
+  "prov:wasDerivedFrom": {
+  "@id" : "gprov:{{row.Acronymn}}_Recommendation_{{row.Recommendation_Number}}",
+  "@type" : "gprov:Recommendation",
+  "dct:partOf" : 
+			{
+			"@id" : "gprov:{{row.Acronymn}}_Guidelines",
+			"@type" : "gprov:Guideline",
+			"dct:title" : "{{row.Guideline}}",
+			"dct:date" : "{{row.Guideline_Year}}",
+			"bibo:volume" : "{{row.Guideline_Volume}}"
+			},
+  "prov:influencer" : 
+			{
+				"@id" : "gprov:{{row.Acronymn}}_Recommendation_{{row.Recommendation_Number}}_Grade",
+				"@type" : "gprov:Grade",
+				"sio:hasValue" :"{{row.Grade}}"
+			},
+	"sio:hasValue" : "{{row.Recommendation}}",
+	"prov:wasGeneratedBy" : 
+			{
+				"@id" : "gprov:{{row.Acronymn}}_Recommendation_{{row.Recommendation_Number}}_Evidence",
+				"@type" : "gprov:EvidenceSentence",
+				"sio:hasValue" : "{{row.Evidence_Sentence}}",
+				"prov:hasPrimarySource" : 
+					[{
+						"@if" : "not isempty(row.Citation)",
+						"@id" : "gprov:citation_{{row.Citation}}",
+						"@type" : "bibo:Article",
+						"dct:title" : "{{row.Title}}",
+						"dct:date" : "{{row.Article_Year}}",
+						"bibo:volume" : "{{row.Article_Volume}}",
+						"dct:publisher" : "{{row.Publisher}}",
+						"bibo:pageStart" : "{{row.Pages.split('–')[0]}}",
+						"bibo:pageEnd" : 
+								[{
+									"@value" : "{{row.Pages.split('–')[1]}}"
+								}],
+						"sio:001315" : 
+								[{
+									"@for": "pid in row.Authors.split(',')",
+									  "@do": 
+									  {
+										"@id": "gprov:{{pid.split(' ')[0]}}",
+										"@type" : "prov:Person",
+										"sio:hasValue" :"{{pid}}"
+									  }
+								}]
+					}]
+			}
+	
+	
+  
+  }
+  
+
+}]'''].
+
+<GuidelineRDF.ttl> a pv:File;
+    dcterms:format "text/turtle";
+    prov:wasGeneratedBy [
+      a setl:Load;
+      prov:used <https://idea.tw.rpi.edu/projects/heals/gprov/> ;
+    ].
