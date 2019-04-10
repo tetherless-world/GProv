@@ -13,7 +13,7 @@
 	<!ENTITY ns "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
 	
 	<!ENTITY prov "https://www.w3.org/ns/prov#">
-	<!ENTITY gprov "https://idea.tw.rpi.edu/projects/heals/gprov/" >	
+	<!ENTITY gprov "https://purl.org/heals/gprov" >	
 ]>
 <rdf:RDF xmlns="https://idea.tw.rpi.edu/projects/heals/gprov/"
      xml:base="https://idea.tw.rpi.edu/projects/heals/gprov/"
@@ -22,7 +22,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:gprov="https://idea.tw.rpi.edu/projects/heals/gprov/"
+     xmlns:gprov="https://purl.org/heals/gprov"
      xmlns:dct="http://purl.org/dc/terms/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:sm="http://www.omg.org/techprocess/ab/SpecificationMetadata/"
@@ -31,8 +31,8 @@
 	 xmlns:sio="http://semanticscience.org/resource/"
      xmlns:prov="https://www.w3.org/ns/prov#">
 	 
-    <owl:Ontology rdf:about="https://idea.tw.rpi.edu/projects/heals/gprov/">
-        <owl:versionIRI rdf:resource="https://idea.tw.rpi.edu/projects/heals/gprov/1.0.0"/>
+    <owl:Ontology rdf:about="https://purl.org/heals/gprov">
+        <owl:versionIRI rdf:resource="https://purl.org/heals/gprov/1.0.0"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
 		<owl:imports rdf:resource="https://www.w3.org/ns/prov#"/>
         <owl:imports rdf:resource="https://raw.githubusercontent.com/structureddynamics/Bibliographic-Ontology-BIBO/master/bibo.owl"/>
