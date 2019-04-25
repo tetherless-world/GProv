@@ -1,0 +1,33 @@
+@prefix DC: <http://purl.org/dc/elements/1.1/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix gprov: <https://purl.org/heals/gprov/> .
+@prefix prov: <https://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<gprov:ADA1DMTO5> a gprov:FormalRule ;
+    prov:wasDerievedFrom <gprov:Recommendation_1> .
+
+<gprov:Recommendation_1> a gprov:Recommendation ;
+    DC:isPartOf <gprov:ADA_Guidelines> ;
+    sio:SIO_000300 "blah" ;
+    prov:hadPrimarySource <gprov:ADA_Guidelines> ;
+    prov:wasGeneratedBy <gprov:Recommendation_1_evidence> ;
+    prov:wasInfluencedBy <gprov:Recommendation_1_grade> .
+
+<gprov:Recommendation_1_evidence> a gprov:EvidenceSentence ;
+    sio:SIO_000300 "blah" ;
+    prov:hadPrimarySource <gprov:citation_30> .
+
+<gprov:Recommendation_1_grade> a gprov:Grade ;
+    sio:SIO_000300 "A" ;
+    prov:hadPrimarySource <gprov:citation_30> .
+
+<gprov:ADA_Guidelines> a gprov:Guideline ;
+    DC:date "2018" ;
+    DC:title "ADA Standards of Care" ;
+    bibo:volume "1" .
+

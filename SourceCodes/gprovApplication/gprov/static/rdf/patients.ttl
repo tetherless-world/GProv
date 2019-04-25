@@ -1,0 +1,81 @@
+@prefix DC: <http://purl.org/dc/elements/1.1/> .
+@prefix dmto: <https://bioportal.bioontology.org/ontologies/DMTO.owl/> .
+@prefix person: <http://idea.rpi.edu/ont/person#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix snomed: <http://purl.bioontology.org/ontology/SNOMEDCT/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<person:john_smith> a sio:Patient ;
+    sio:hasAttribute <person:johnAge>,
+        <person:johnFN>,
+        <person:johnLN>,
+        <person:johnRace>,
+        <person:johnSex>,
+        <person:metformin>,
+        <person:monotherapy> ;
+    sio:hasProperty <person:diabetesMellitus> .
+
+<person:samantha_brown> a sio:Patient ;
+    sio:hasAttribute <person:SamRace>,
+        <person:dualTherapy>,
+        <person:metformin_sulfonylurea>,
+        <person:samAge>,
+        <person:samFN>,
+        <person:samLN>,
+        <person:samSex>,
+        <person:sulfonylurea> ;
+    sio:hasProperty <person:diabetesMellitus> .
+
+<person:SamRace> a sio:Race ;
+    sio:hasValue "Hispanic" .
+
+<person:dualTherapy> a dmto:DrugSubplan ;
+    sio:hasValue "Dual Therapy" .
+
+<person:johnAge> a sio:Age ;
+    sio:hasValue "45" .
+
+<person:johnFN> a sio:FirstName ;
+    sio:hasValue "John" .
+
+<person:johnLN> a sio:LastName ;
+    sio:hasValue "Smith" .
+
+<person:johnRace> a sio:Race ;
+    sio:hasValue "White" .
+
+<person:johnSex> a sio:BiologicalSex ;
+    sio:hasValue "Male" .
+
+<person:metformin_sulfonylurea> a sio:Drug ;
+    DC:hasPart <person:metformin>,
+        <person:sulfonylurea> ;
+    sio:hasValue "metformin-sulfonylurea plan" .
+
+<person:monotherapy> a dmto:DrugSubplan ;
+    sio:hasValue "Monotherapy" .
+
+<person:samAge> a sio:Age ;
+    sio:hasValue "57" .
+
+<person:samFN> a sio:FirstName ;
+    sio:hasValue "Samantha" .
+
+<person:samLN> a sio:LastName ;
+    sio:hasValue "Brown" .
+
+<person:samSex> a sio:BiologicalSex ;
+    sio:hasValue "Female" .
+
+<person:diabetesMellitus> a snomed:DiabetesMellitus ;
+    sio:hasValue "Diabetes Mellitus" .
+
+<person:metformin> a sio:Drug ;
+    sio:hasValue "Metformin" .
+
+<person:sulfonylurea> a sio:Drug ;
+    sio:hasValue "Sulfonylurea" .
+
