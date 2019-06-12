@@ -1,5 +1,5 @@
 #from py2neo import Graph, Node, Relationship
-from passlib.hash import bcrypt
+# passlib.hash import bcrypt
 from flask import Flask, render_template
 from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef, term
 from rdflib.namespace import FOAF, DC

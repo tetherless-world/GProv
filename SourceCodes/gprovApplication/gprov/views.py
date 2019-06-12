@@ -6,10 +6,6 @@ import pandas as pd
 
 app = Flask(__name__)
 
-#class dropdown(Form):
-#    city = ["Amherst", "St Martin", "Saint-Jean-Sur-Richelieu", "Las vegas", "Montréal-Ouest", "Pittsburgh", "Pheonix AZ", "Toronto","York"]
-#    cityList = wtforms.SelectField(label='City', choices=city)
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     lastName = "Smith"
@@ -55,21 +51,6 @@ def patient():
     prov = provenance_Information(drug, drugTherapy)
     
     return render_template('physician.html',patient=patientList, row=prov, me=res2)
-
-
-@app.route('/city', methods=['GET', 'POST'])
-#def restaurant_by_location():
-##    form = dropdown(request.form)
-#    cityList = ["Amherst", "St Martin", "Saint-Jean-Sur-Richelieu", "Las vegas", "Montréal-Ouest", "Pittsburgh", "Pheonix AZ", "York"]
-#    myCity = "Toronto"
-#    if request.method == 'POST':
-#        myCurrentCity = request.form['city']  
-#        posts = get_higest_ranking_restaurant(myCurrentCity)
-#        return render_template('index.html', city=cityList, posts=posts)
-#    
-#    posts = get_higest_ranking_restaurant(myCity)
-#    return render_template('index.html', city=cityList, posts=posts)
-##    city = 'Toronto'
 
 
 @app.route('/CMView', methods=['GET','POST'])
