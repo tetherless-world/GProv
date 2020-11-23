@@ -87,16 +87,21 @@ dct:title rdfs:domain bibo:Document ,
                         owl:onDataRange xsd:string
                       ] .
 
-
 ###  http://purl.org/ontology/bibo/contributorList
-bibo:contributorList rdfs:domain bibo:Document ;
-                     rdfs:range gprov:Author .
+bibo:contributorList rdf:type owl:ObjectProperty ;
+                     rdfs:domain bibo:Document ;
+                     rdfs:range gprov:Author ;
+                     skos:prefLabel "Contributor List"^^xsd:string ;
+                     rdfs:label "Contributor List"@en .
 
 
 ###  http://purl.org/ontology/bibo/presentedAt
 bibo:presentedAt rdf:type owl:ObjectProperty ;
                  rdfs:domain bibo:Document ;
-                 rdfs:range bibo:Event .
+                 rdfs:range bibo:Event ;
+                 rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+                 ns:term_status "unstable" ;
+                 rdfs:label "Presented At"@en .
 
 
 ###  https://www.w3.org/ns/prov#hadMember
@@ -139,6 +144,24 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
                     rdfs:label "was derieved from"@en ;
                     skos:prefLabel "was derieved from"^^xsd:string .
 
+###  https://www.w3.org/ns/prov#wasRevisionOf
+prov:wasRevisionOf rdf:type owl:ObjectProperty ;
+                    rdfs:domain gprov:Recommendation ;
+                    rdfs:range gprov:Recommendation;
+                    dct:identifier "http://www.w3.org/ns/prov#wasRevisionOf" ;
+                    dct:source "https://www.w3.org/ns/prov#" ;
+                    rdfs:label "was revision of"@en ;
+                    skos:prefLabel "was revision of"^^xsd:string .
+
+###  https://www.w3.org/ns/prov#wasAlternateOf
+prov:wasAlternateOf rdf:type owl:ObjectProperty ;
+                    rdfs:domain gprov:Recommendation ;
+                    rdfs:range gprov:Recommendation;
+                    dct:identifier "http://www.w3.org/ns/prov#wasAlternateOf" ;
+                    dct:source "https://www.w3.org/ns/prov#" ;
+                    rdfs:label "was alternate of"@en ;
+                    skos:prefLabel "was alternate of"^^xsd:string .
+   
 
 ###  https://www.w3.org/ns/prov#wasGeneratedBy
 prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
@@ -200,10 +223,6 @@ prov:wasInfluencedBy rdf:type owl:ObjectProperty ;
 dct:title rdf:type owl:DatatypeProperty .
 
 
-###  http://purl.org/ontology/bibo/contributorList
-bibo:contributorList rdf:type owl:DatatypeProperty .
-
-
 ###  http://purl.org/ontology/bibo/issue
 bibo:issue rdf:type owl:DatatypeProperty ;
            rdfs:domain bibo:Document ;
@@ -227,12 +246,6 @@ bibo:pageStart rdf:type owl:DatatypeProperty ;
                rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
                rdfs:label "page start"@en ;
                ns:term_status "stable" .
-
-
-###  http://purl.org/ontology/bibo/presentedAt
-bibo:presentedAt rdf:type owl:DatatypeProperty ;
-                 rdfs:range xsd:string .
-
 
 ###  http://purl.org/ontology/bibo/uri
 bibo:uri rdf:type owl:DatatypeProperty ;
@@ -271,7 +284,7 @@ bibo:volume rdf:type owl:DatatypeProperty ;
 bibo:AcademicArticle rdf:type owl:Class ;
                      rdfs:subClassOf bibo:Article ;
                      rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
-                     rdfs:label "academic Article"@en ;
+                     rdfs:label "Academic Article"@en ;
                      ns:term_status "stable" .
 
 
@@ -303,7 +316,7 @@ bibo:AudioVisualDocument rdf:type owl:Class ;
 bibo:Book rdf:type owl:Class ;
           rdfs:subClassOf bibo:Document ;
           rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
-          rdfs:label "book"@en ;
+          rdfs:label "Book"@en ;
           ns:term_status "stable" .
 
 
@@ -480,7 +493,7 @@ prov:Organization rdf:type owl:Class ;
 prov:Person rdf:type owl:Class ;
             rdfs:subClassOf prov:Agent ;
             rdfs:isDefinedBy "https://www.w3.org/TR/prov-o/#Person"^^xsd:anyURI ;
-            rdfs:label "person" ;
+            rdfs:label "Person" ;
             ns:term_status "stable" .
 
 
@@ -488,29 +501,7 @@ prov:Person rdf:type owl:Class ;
 prov:SoftwareAgent rdf:type owl:Class ;
                    rdfs:subClassOf prov:Agent ;
                    rdfs:isDefinedBy "https://www.w3.org/TR/prov-o/#SoftwareAgent"^^xsd:anyURI ;
-                   rdfs:label "software agent" .
-
-
-[ owl:minCardinality "1"^^xsd:nonNegativeInteger
-] .
-
-[ owl:minCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:maxCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minCardinality "1"^^xsd:nonNegativeInteger
- ] .
+                   rdfs:label "Software Agent" .
 
 #################################################################
 #    Annotations
@@ -518,16 +509,3 @@ prov:SoftwareAgent rdf:type owl:Class ;
 
 dct:title  skos:prefLabel "title"^^xsd:string ;
            rdfs:label "title"@en .
-
-
-bibo:contributorList skos:prefLabel "contributor list"^^xsd:string ;
-                     rdfs:label "contributor list"@en .
-
-
-bibo:presentedAt skos:prefLabel "contributor list"^^xsd:string ;
-                 rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
-                 ns:term_status "unstable" ;
-                 rdfs:label "presented at"@en .
-
-
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
