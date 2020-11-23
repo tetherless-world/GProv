@@ -20,8 +20,7 @@
 <https://purl.org/heals/gprov> rdf:type owl:Ontology ;
                                 owl:versionIRI <https://purl.org/heals/gprov/1.0.0> ;
                                 owl:imports <http://www.w3.org/2004/02/skos/core> ,
-                                            <https://raw.githubusercontent.com/structureddynamics/Bibliographic-Ontology-BIBO/master/bibo.owl> ,
-                                            prov: ;
+                                            <https://raw.githubusercontent.com/structureddynamics/Bibliographic-Ontology-BIBO/master/bibo.owl>;
                                 dct:contributor "Amar Das" ,
                                                 "Nkechinyere Agu" ,
                                                 "Oshani Seneviratne" ,
