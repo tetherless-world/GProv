@@ -209,7 +209,7 @@ bibo:issue rdf:type owl:DatatypeProperty ;
            rdfs:domain bibo:Document ;
            rdfs:range xsd:decimal ;
            rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
-           rdfs:label "issue"@en .
+           rdfs:label "Issue"@en .
 
 
 ###  http://purl.org/ontology/bibo/pageEnd
@@ -311,7 +311,7 @@ bibo:Book rdf:type owl:Class ;
 bibo:BookSection rdf:type owl:Class ;
                  rdfs:subClassOf bibo:DocumentPart ;
                  rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
-                 rdfs:label "book Section"@en ;
+                 rdfs:label "Book Section"@en ;
                  ns:term_status "unstable" .
 
 
@@ -342,7 +342,7 @@ bibo:Document rdf:type owl:Class ;
 bibo:DocumentPart rdf:type owl:Class ;
                   rdfs:subClassOf bibo:Document ;
                   rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
-                  rdfs:label "document part"@en ;
+                  rdfs:label "Document Part"@en ;
                   ns:term_status "unstable" .
 
 
@@ -400,21 +400,20 @@ bibo:Report rdf:type owl:Class ;
 ###  https://purl.org/heals/gprovAuthor
 gprov:Author rdf:type owl:Class ;
              rdfs:isDefinedBy "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C42781"^^xsd:anyURI ;
-             rdfs:label "author"@en ;
+             rdfs:label "Author"@en ;
              ns:term_status "stable" .
 
 
 ###  https://purl.org/heals/gprovCitation
 gprov:Citation rdf:type owl:Class ;
-               rdfs:subClassOf gprov:EvidenceSentence ;
                rdfs:isDefinedBy "http://semanticscience.org/resource/SIO_000174"^^xsd:anyURI ;
-               rdfs:label "citation" .
+               rdfs:label "Citation" .
 
 
 ###  https://purl.org/heals/gprovDisease
 gprov:Disease rdf:type owl:Class ;
               rdfs:isDefinedBy "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_4"^^xsd:anyURI ;
-              rdfs:label "disease or condition"^^xsd:string .
+              rdfs:label "Disease or Condition"^^xsd:string .
 
 
 ###  https://purl.org/heals/gprovDiseaseManagement
@@ -425,9 +424,8 @@ gprov:DiseaseManagement rdf:type owl:Class ;
 
 ###  https://purl.org/heals/gprovEvidenceSentence
 gprov:EvidenceSentence rdf:type owl:Class ;
-                       rdfs:subClassOf gprov:Recommendation ;
                        rdfs:isDefinedBy "https://en.oxforddictionaries.com/definition/evidence"^^xsd:anyURI ;
-                       rdfs:label "evidence sentence"  .
+                       rdfs:label "Evidence Sentence"  .
 
 
 ###  https://purl.org/heals/gprovFormalRule
@@ -438,23 +436,22 @@ gprov:FormalRule rdf:type owl:Class ;
 
 ###  https://purl.org/heals/gprovGrade
 gprov:Grade rdf:type owl:Class ;
-            rdfs:subClassOf gprov:Recommendation ;
             rdfs:isDefinedBy "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C48309"^^xsd:anyURI ;
-            rdfs:label "grade"  .
+            rdfs:label "Grade"  .
 
 
 ###  https://purl.org/heals/gprovGuideline
 gprov:Guideline rdf:type owl:Class ;
-                rdfs:subClassOf bibo:Document ;
+                rdfs:subClass bibo:Chapter;
                 rdfs:isDefinedBy "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C17564"^^xsd:anyURI ;
-                rdfs:label "guideline"  .
+                rdfs:label "Guideline"  .
 
 
 ###  https://purl.org/heals/gprovRecommendation
 gprov:Recommendation rdf:type owl:Class ;
-                     rdfs:subClassOf gprov:Guideline ;
+
                      rdfs:isDefinedBy "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25197"^^xsd:anyURI ;
-                     rdfs:label "recommendation"  .
+                     rdfs:label "Recommendation"  .
 
 
 ###  https://purl.org/heals/gprovReference
