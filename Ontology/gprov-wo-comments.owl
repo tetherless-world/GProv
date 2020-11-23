@@ -118,8 +118,7 @@ prov:hadPrimarySource rdf:type owl:ObjectProperty ;
 ###  https://www.w3.org/ns/prov#used
 prov:used rdf:type owl:ObjectProperty ;
           rdfs:domain gprov:DiseaseManagement ;
-          rdfs:range gprov:Disease,
-                     gprov:Guideline;
+          rdfs:range gprov:Guideline;
           dct:identifier "http://www.w3.org/ns/prov#used" ;
           dct:source "https://www.w3.org/ns/prov#" ;
           rdfs:label "used"@en ;
