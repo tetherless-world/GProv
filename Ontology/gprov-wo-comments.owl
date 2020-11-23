@@ -455,7 +455,7 @@ gprov:Grade rdf:type owl:Class ;
 
 ###  https://purl.org/heals/gprovGuideline
 gprov:Guideline rdf:type owl:Class ;
-                rdfs:subClassOf bibo:Chapter;
+                rdfs:subClassOf bibo:Document, bibo:Chapter;
                 rdfs:isDefinedBy "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C17564"^^xsd:anyURI ;
                 rdfs:label "Guideline"  .
 
