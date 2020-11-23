@@ -78,15 +78,6 @@ dct:isPartOf rdf:type owl:ObjectProperty ;
              rdfs:range gprov:Guideline ;
              rdfs:label "part of"@en .
 
-
-###  http://purl.org/dc/terms/title
-dct:title rdfs:domain bibo:Document ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty dct:title ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onDataRange xsd:string
-                      ] .
-
 ###  http://purl.org/ontology/bibo/contributorList
 bibo:contributorList rdf:type owl:ObjectProperty ;
                      rdfs:domain bibo:Document ;
@@ -186,38 +177,6 @@ prov:wasInfluencedBy rdf:type owl:ObjectProperty ;
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://prismstandard.org/namespaces/1.2/basic/endingPage
-<http://prismstandard.org/namespaces/1.2/basic/endingPage> rdfs:domain [ rdf:type owl:Restriction ;
-                                                                         owl:onProperty <http://prismstandard.org/namespaces/1.2/basic/endingPage> ;
-                                                                         owl:someValuesFrom xsd:int
-                                                                       ] ;
-                                                           rdfs:range xsd:int .
-
-
-###  http://prismstandard.org/namespaces/1.2/basic/issue
-<http://prismstandard.org/namespaces/1.2/basic/issue> rdfs:domain [ rdf:type owl:Restriction ;
-                                                                    owl:onProperty <http://prismstandard.org/namespaces/1.2/basic/issue> ;
-                                                                    owl:someValuesFrom xsd:int
-                                                                  ] ;
-                                                      rdfs:range xsd:int .
-
-
-###  http://prismstandard.org/namespaces/1.2/basic/startingPage
-<http://prismstandard.org/namespaces/1.2/basic/startingPage> rdfs:domain [ rdf:type owl:Restriction ;
-                                                                           owl:onProperty <http://prismstandard.org/namespaces/1.2/basic/startingPage> ;
-                                                                           owl:someValuesFrom xsd:int
-                                                                         ] ;
-                                                             rdfs:range xsd:int .
-
-
-###  http://prismstandard.org/namespaces/1.2/basic/volume
-<http://prismstandard.org/namespaces/1.2/basic/volume> rdfs:domain [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://prismstandard.org/namespaces/1.2/basic/volume> ;
-                                                                     owl:someValuesFrom xsd:int
-                                                                   ] ;
-                                                       rdfs:range xsd:int .
-
 
 ###  http://purl.org/dc/terms/title
 dct:title rdf:type owl:DatatypeProperty .
@@ -365,18 +324,6 @@ bibo:EditedBook rdf:type owl:Class ;
                 rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
                 rdfs:label "edited Book"@en ;
                 ns:term_status "stable" .
-
-
-###  http://purl.org/ontology/bibo/Issue
-bibo:Issue rdf:type owl:Class ;
-           rdfs:subClassOf bibo:CollectedDocument ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty dct:hasPart ;
-                             owl:allValuesFrom bibo:Article
-                           ] ;
-           rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
-           ns:term_status "stable" .
-
 
 ###  http://purl.org/ontology/bibo/Manual
 bibo:Manual rdf:type owl:Class ;
