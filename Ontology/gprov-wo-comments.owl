@@ -273,7 +273,7 @@ bibo:Document rdf:type owl:Class ;
               bibo:pageEnd rdfs:Literal ;
               bibo:pageStart rdfs:Literal ;
               bibo:uri xsd:anyURI ;
-              bibo:volume rdfs:range rdfs:Literal ;
+              bibo:volume rdfs:Literal ;
               rdfs:isDefinedBy "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
               rdfs:label "document"@en ;
               ns:term_status "stable" .
@@ -365,8 +365,7 @@ gprov:EvidenceSentence rdf:type owl:Class ;
 
 ###  https://purl.org/heals/gprovFormalRule
 gprov:FormalRule rdf:type owl:Class ;
-                  prov:wasDerivedFrom gprov:Guideline, gprov:Recommendation;
-                 prov:wasDerivedFrom bibo:Document, gprov:Recommendation ;
+                prov:wasDerivedFrom gprov:Guideline, gprov:Recommendation, bibo:Document ;
                  rdfs:isDefinedBy "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C78269"^^xsd:anyURI ;
                  rdfs:label "formal rule"  .
 
