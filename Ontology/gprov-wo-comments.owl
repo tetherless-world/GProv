@@ -131,8 +131,8 @@ prov:wasRevisionOf rdf:type owl:ObjectProperty ;
 prov:wasAlternateOf rdf:type owl:ObjectProperty ;
                     dct:identifier "http://www.w3.org/ns/prov#wasAlternateOf" ;
                     dct:source "https://www.w3.org/ns/prov#" ;
-                    rdfs:label "was alternate of"@en ;
-                    skos:prefLabel "was alternate of"^^xsd:string .
+                    rdfs:label "Was Alternate of"@en ;
+                    skos:prefLabel "Was Alternate of"^^xsd:string .
    
 
 ###  https://www.w3.org/ns/prov#wasGeneratedBy
@@ -193,9 +193,10 @@ bibo:volume rdf:type owl:DatatypeProperty ;
 
 ###  sio:SIO_000300
 <sio:SIO_000300> rdf:type owl:DatatypeProperty ;
-                 rdfs:label "sio:hasValue"@en ;
+                 rdfs:label "Has Value"@en ;
                  ns:term_status "unstable" .
-
+                 
+rdfs:subClassOf rdfs:label "Sub Class Of"@en .
 
 #################################################################
 #    Classes
@@ -384,6 +385,7 @@ gprov:Guideline rdf:type owl:Class ;
                 rdfs:isDefinedBy "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C17564"^^xsd:anyURI ;
                 rdfs:label "Guideline"  .
 
+prov:alternateOf rdfs:label "Alternate Of"  .
 
 ###  https://purl.org/heals/gprovRecommendation
 gprov:Recommendation rdf:type owl:Class ;
