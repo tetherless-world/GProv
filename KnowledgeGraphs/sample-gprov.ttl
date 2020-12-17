@@ -22,7 +22,7 @@
 :ADA_Recommendation_1   sio:hasValue "Metformin is the preferred initial pharmacologic agent for the treatment of type 2 diabetes." ;
                         sio:hasAttribute :ADA_Recommendation_1_Grade ;
                         prov:hadPrimarySource :ADA_Guidelines ;
-                        dct:isPartOf :ADA_Guidelines ;
+                        dct:isPartOf :ADA_Guidelines .
 
 :ADA_Recommendation_1_Grade sio:hasValue "A" .
 
