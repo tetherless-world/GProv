@@ -17,15 +17,62 @@
 @prefix prov1: <http://www.w3.org/ns/prov#> .
 @base <https://purl.org/heals/gprov> .
 
-:DMTO_Rule_1 prov:wasDerivedFrom :ADA_Recommendation_1 .
+:DMTO_Rule_1 a gprov:FormalRule;
+             prov:wasDerivedFrom :ADA_Recommendation_2020_9_4 .
 
-:ADA_Recommendation_1   sio:hasValue "Metformin is the preferred initial pharmacologic agent for the treatment of type 2 diabetes." ;
-                        sio:hasAttribute :ADA_Recommendation_1_Grade ;
-                        prov:hadPrimarySource :ADA_Guidelines ;
-                        dct:isPartOf :ADA_Guidelines .
+:ADA_Recommendation_2020_9_4 a gprov:Recommendation ;
+                        prov:wasRevisionOf :ADA_Recommendation_2019_9_5 ;
+                        prov:wasGeneratedBy :EvidenceSentence_2020_9_4;
+                        sio:hasAttribute :ADA_Recommendation_2020_9_4_Grade ;
+                        prov:hadPrimarySource :ADA_Guidelines_2020 ;
+                        dct:isPartOf :ADA_Guidelines_2020 ;
+                        sio:hasValue "Metformin is the preferred initial pharmacologic agent for the treatment of type 2 diabetes.".
+                        
+:EvidenceSentence_2020_9_4 a gprov:EvidenceSentence;
+                    sio:hasValue "Metformin should be started at the time type 2 diabetes is diagnosed unless there are contraindications; for many patients this will be monotherapy in combination with lifestyle modifications. Metformin is effective and safe, is inexpensive, and may reduce risk of cardiovascular events and death (35)." ;
+                    prov:wasInfluencedBy :ADA_Recommendation_2020_9_4_Grade;
+                    prov:hadPrimarySource :ADA_Recommendation_Citation_1.
 
-:ADA_Recommendation_1_Grade sio:hasValue "A" .
+:ADA_Recommendation_Citation_1 a gprov:Citation;
+                    sio:hasValue "Holman RR, Paul SK, Bethel MA, Matthews DR, Neil HAW. 10-year follow-up of intensive glucose control in type 2 diabetes. N Engl J Med 2008;359:1577–1589";
+                    a bibo:Article;
+                    bibo:pageEnd "1589";
+                    bibo:pageStart "1577";
+                    bibo:volume "NEJMoa0806470";
+                    dct:date "October 9, 2008";
+                    dct:publisher "The New England Journal of Medicine";
+                    dct:title "10-Year Follow-up of Intensive Glucose Control in Type 2 Diabetes";
+                    gprov:authorList "Rury R. Holman, F.R.C.P., Sanjoy K. Paul, Ph.D., M. Angelyn Bethel, M.D., David R. Matthews, F.R.C.P., and H. Andrew W. Neil, F.R.C.P.".
+                        
+:ADA_Recommendation_2020_9_4_Grade a gprov:Grade;
+                    sio:hasValue "A" .
 
-:ADA_Guidelines dct:year "2018";
+:ADA_Guidelines_2020 dct:year "2020"; 
                 dct:title "American Diabetes Association Standards of Medical Care in Diabetes" ;
-                bibo:volume "42" .
+                bibo:volume "43" ;
+                bibo:contributorList :ADA_Guidelines_Author;
+                bibo:uri "https://care.diabetesjournals.org/content/43/Supplement_1".
+
+:ADA_Guidelines_Author a gprov:Author;
+                            sio:hasValue "American Diabetes Association".
+
+:ADA_Recommendation_2019_9_5 a gprov:Recommendation ;
+                        prov:wasGeneratedBy :EvidenceSentence_2019_9_5;
+                        sio:hasAttribute :ADA_Recommendation_2019_9_5_Grade;
+                        prov:hadPrimarySource :ADA_Guidelines_2019 ;
+                        dct:isPartOf :ADA_Guidelines_2019;
+                        sio:hasValue "Metformin is the preferred initial pharmacologic agent for the treatment of type 2 diabetes.".
+
+:EvidenceSentence_2019_9_5 a gprov:EvidenceSentence;
+                    sio:hasValue "Metformin should be started at the time type 2 diabetes is diagnosed unless there are contraindications; for most patients this will be monotherapy in combination with lifestyle modifications. Metformin is effective and safe, is inexpensive, and may reduce risk of cardiovascular events and death (40)." ;
+                    prov:wasInfluencedBy :ADA_Recommendation_2020_9_4_Grade;
+                    prov:hadPrimarySource :ADA_Recommendation_Citation_1.
+
+:ADA_Recommendation_2019_9_5_Grade a gprov:Grade;
+                        sio:hasValue "A" .
+
+:ADA_Guidelines_2019 dct:year "2019"; 
+                dct:title "American Diabetes Association Standards of Medical Care in Diabetes" ;
+                bibo:volume "42" ;
+                bibo:contributorList :ADA_Guidelines_Author;
+                bibo:uri "https://care.diabetesjournals.org/content/42/Supplement_1".
